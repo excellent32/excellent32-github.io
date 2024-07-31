@@ -3,6 +3,7 @@ import React from '@vitejs/plugin-react';
 import {fileURLToPath} from 'node:url';
 
 export default defineConfig({
+  base:'/dist/',
   plugins: [React({include: /\.(mdx|js|jsx|ts|tsx)$/})],
   resolve: {
     alias: {
