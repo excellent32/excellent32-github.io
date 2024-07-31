@@ -27,10 +27,7 @@ const connector = walletConnect({
 // @ts-ignore
 const connectConfig = createConfig({
   chains: res.chains as [Chain, ...Chain[]],
-  transports: res.transports,
-  connectors: [
-    connector
-  ]
+  transports: res.transports
 });
 
 export default function App() {
