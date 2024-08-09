@@ -1,16 +1,21 @@
 import {useState} from 'react';
 import './App.css'
+declare const window: any
 
 export default function App() {
 
   const [token, setToken] = useState('');
 
   function handleToken(){
-    setToken(window.pulseAppWebToken)
+    if(typeof window === 'object'){
+      setToken(window?.pulseAppWebToken)
+    }
   }
 
   function handleNativeParam(){
-    window.Bridge.postMessage('sssss')
+    if(typeof window === 'object') {
+      window?.Bridge.postMessage('sssss')
+    }
   }
 
   return (
