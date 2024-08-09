@@ -1,52 +1,28 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import './App.css'
-import { createConfig, fallback, http, connect } from '@wagmi/core'
-import * as supportChains from '@wagmi/core/chains';
-import  type {Chain} from '@wagmi/core/chains';
-import { walletConnect } from '@wagmi/connectors'
-
-const transport = fallback([http()]);
-const res : Record<string, any> = Object.keys(supportChains).reduce(
-  (r, c) => {
-    // @ts-ignore
-    const chain = supportChains[c] as any;
-    // @ts-ignore
-    r.chains.push(chain);
-    r.transports[chain.id] = transport;
-    return r;
-  },
-  {
-    chains: [],
-    transports: {} as any
-  }
-);
-
-const connector = walletConnect({
-  projectId: 'ced3fd59c00844656725ca216e86b7bb',
-});
-// @ts-ignore
-const connectConfig = createConfig({
-  chains: res.chains as [Chain, ...Chain[]],
-  transports: res.transports
-});
 
 export default function App() {
-  const [con, setCon] = useState<number>();
 
-  useEffect( ()=> {
-    initConnect();
-  })
+  const [token, setToken] = useState('');
 
-  async function initConnect(){
-    const result = await connect(connectConfig, {connector});
-    setCon(result.chainId)
+  function handleToken(){
+    setToken(window.pulseAppWebToken)
   }
 
+  function handleNativeParam(){
+    window.Bridge.postMessage('sssss')
+  }
 
   return (
     <div>
       测试 wallet-connect
-      <span>{con}</span>
+
+      <div style={{padding: 20}}>
+        <button onClick={handleToken}>获取Token</button>
+        <span>{token}</span>
+      </div>
+
+      <button onClick={handleNativeParam}>native 参数</button>
     </div>
   )
 }
