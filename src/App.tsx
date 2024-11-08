@@ -1,34 +1,14 @@
-import {useState} from 'react';
-import './App.css'
-declare const window: any
-
-export default function App() {
-
-  const [token, setToken] = useState('');
-
-  function handleToken(){
-    if(typeof window === 'object'){
-      setToken(window?.pulseAppWebToken)
-    }
-  }
-
-  function handleNativeParam(){
-    if(typeof window === 'object') {
-      window?.Bridge.postMessage('sssss')
-    }
-  }
+import {NavLink} from 'react-router-dom'
+function App() {
 
   return (
-    <div>
-      测试 wallet-connect
-
-      <div style={{padding: 20}}>
-        <button onClick={handleToken}>获取Token</button>
-        <span>{token}</span>
+    <div className="w-[300px]">
+      <div className="flex item-center justify-around">
+        <NavLink to="/apple"className="cursor-pointer">Apple</NavLink>
+        <NavLink to="/google"className="cursor-pointer">Google</NavLink>
       </div>
-
-      <button onClick={handleNativeParam}>native 参数</button>
     </div>
   )
 }
 
+export default App

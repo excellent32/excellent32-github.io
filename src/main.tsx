@@ -1,10 +1,42 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import { createBrowserRouter, RouterProvider} from 'react-router-dom'
+import App from './App'
+import AppleAuth from './third-party/AppleAuth'
+import GoogleAuth from './third-party/GoogleAuth'
+import AuthResult from './third-party/AuthResult'
+import NativeParams from './native-params'
+import Wallet from './wallet/Wallet'
+
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+
+const router = createBrowserRouter([
+  {
+    path:"/",
+    element: <App/>,
+  },
+  {
+    path:"/apple",
+    element: <AppleAuth/>,
+  },
+  {
+    path:"/google",
+    element: <GoogleAuth/>,
+  },
+  {
+    path:"/callback",
+    element: <AuthResult/>,
+  },
+  {
+    path:"/wallet",
+    element: <Wallet/>,
+  },
+  {
+    path:"/native-params",
+    element: <NativeParams/>,
+  }
+])
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <RouterProvider router={router}/>
 )
