@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react';
-import './App.css'
 import { createConfig, fallback, http, connect } from '@wagmi/core'
 import * as supportChains from '@wagmi/core/chains';
 import  type {Chain} from '@wagmi/core/chains';

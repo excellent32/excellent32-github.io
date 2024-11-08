@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/native-params/index.tsx","./src/third-party/appleauth.tsx","./src/third-party/authresult.tsx","./src/third-party/googleauth.tsx","./src/types/index.d.ts","./src/wallet/wallet.tsx"],"version":"5.6.3"}
