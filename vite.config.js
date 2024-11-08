@@ -7,7 +7,7 @@ import fs from 'node:fs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",
+  base: "/",
   plugins: [
     mkcert(),
     react(),
