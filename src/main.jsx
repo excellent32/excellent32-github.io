@@ -8,30 +8,31 @@ import AuthResult from './third-party/AuthResult';
 import NativeParams from './native-params';
 import Wallet from './wallet/Wallet';
 import './index.css';
+var baseUrl = import.meta.env.BASE_URL;
 var router = createBrowserRouter([
     {
-        path: "/",
+        path: baseUrl + "/",
         element: <App />,
     },
     {
-        path: "/apple",
+        path: baseUrl + "/apple",
         element: <AppleAuth />,
     },
     {
-        path: "/google",
+        path: baseUrl + "/google",
         element: <GoogleAuth />,
     },
     {
-        path: "/callback",
+        path: baseUrl + "/callback",
         element: <AuthResult />,
     },
     {
-        path: "/wallet",
+        path: baseUrl + "/wallet",
         element: <Wallet />,
     },
     {
-        path: "/native-params",
+        path: baseUrl + "/native-params",
         element: <NativeParams />,
     }
-], { basename: import.meta.env.BASE_URL });
+]);
 ReactDOM.createRoot(document.getElementById('root')).render(<RouterProvider router={router}/>);
