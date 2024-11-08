@@ -36,7 +36,7 @@ const router = createBrowserRouter([
     path:"/native-params",
     element: <NativeParams/>,
   }
-])
+], {basename: import.meta.env.BASE_URL})
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <RouterProvider router={router}/>
+  <RouterProvider  router={router}/>
 )
