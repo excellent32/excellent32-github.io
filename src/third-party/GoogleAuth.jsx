@@ -71,7 +71,7 @@ export default function Apple() {
         var params = {
             "origin": location.origin,
             'client_id': configFile.clientId,
-            'redirect_uri': "".concat(location.origin, "/callback"),
+            'redirect_uri': "".concat(location.origin, "/dist/callback"),
             'response_type': 'id_token',
             // 'scope': ['https://www.googleapis.com/auth/userinfo.email','https://www.googleapis.com/auth/userinfo.profile'],
             'scope': "openid email profile",
