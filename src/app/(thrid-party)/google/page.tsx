@@ -16,6 +16,10 @@ export default function Apple() {
   useEffect(() => {
     const link = genAuth();
     setAuthLink(link);
+    window.addEventListener('message', (event) => {
+      // 验证消息来源
+      console.log('Received message:', event.data);
+    });
   }, []);
 
   function genAuth(){
@@ -42,25 +46,21 @@ export default function Apple() {
 
   async function handleLinkClick(){
     // await loadGoolge();
-    const originWindowOpen: any = window.open;
-    window.open = function(){
-      console.log('====',arguments);
-      const t = originWindowOpen.call(window, ...arguments);
-      const timer = setInterval(()=>{
-        if(t?.closed){
-          console.log('====closed=',t, t.location);
-          clearInterval(timer);
-          // chrome.identity.getAuthToken({interactive: true}, function(token) {
-          //     console.log('===chrome-token==', token);
-          // })
-        }
-      },200)
-      t.postMessage=function(a: unknown){
-        console.log('====postmessage-a=',a);
-      }
-      console.log('====',t);
-    }
-    window.open(authLink)
+    // const originWindowOpen: any = window.open;
+    // window.open = function(){
+    //   console.log('====',arguments);
+    //   const t = originWindowOpen.call(window, ...arguments);
+    //   const timer = setInterval(()=>{
+    //     if(t?.closed){
+    //       console.log('====closed=',t, t.location);
+    //       clearInterval(timer);
+    //       // chrome.identity.getAuthToken({interactive: true}, function(token) {
+    //       //     console.log('===chrome-token==', token);
+    //       // })
+    //     }
+    //   },200);
+    // }
+    const popupWindow = window.open(authLink, 'popupWindow', 'popup=1,width=600,height=400,scrollbars=yes,resizable=yes')
   }
 
 function handleLoginClick(){
