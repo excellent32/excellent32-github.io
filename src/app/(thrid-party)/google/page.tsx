@@ -60,7 +60,20 @@ export default function Apple() {
     //     }
     //   },200);
     // }
-    const popupWindow = window.open(authLink, '_blank', 'popup=1,width=600,height=400,scrollbars=yes,resizable=yes')
+
+    // let a = document.createElement('a');
+    // a.setAttribute('href', authLink);
+    // a.setAttribute('target','_blank');
+    // // a.setAttribute('id',id);
+    // document.appendChild(a);
+    // setTimeout(()=>{
+    //   a.remove();
+    // })
+    const popupWindow = window.open(authLink, 'popupWindow', 'popup=1,width=600,height=400,scrollbars=yes,resizable=yes');
+    popupWindow.onChange=()=>{
+      console.log('====',popupWindow.location);
+      popupWindow.postMessage('==popupWindow===','window')
+    };
   }
 
 function handleLoginClick(){
