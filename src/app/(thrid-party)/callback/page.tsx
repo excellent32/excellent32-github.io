@@ -1,8 +1,16 @@
 'use client'
 
+import {useEffect} from "react";
+
 declare let window: any;
 
 export default function Page() {
+
+  useEffect(() => {
+    const hashParams = new URLSearchParams(location.hash.substr(1))
+    const id_token = hashParams.get('id_token');
+    window.postMessage(id_token, location.origin)
+  }, []);
   if(typeof document !== 'undefined'){
     window.document.addEventListener('AppleIDSignInOnSuccess', (event: any) => {
       // Handle successful response.
