@@ -1,8 +1,0 @@
-{
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/(thrid-party)/google/page": "app/(thrid-party)/google/page.js",
-  "/(thrid-party)/callback/page": "app/(thrid-party)/callback/page.js",
-  "/(thrid-party)/apple/page": "app/(thrid-party)/apple/page.js",
-  "/page": "app/page.js"
-}
