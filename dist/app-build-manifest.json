@@ -1,0 +1,48 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-e35b36d3638c2d3c.js",
+      "static/chunks/4bd1b696-7f4092adee896cfb.js",
+      "static/chunks/517-698017e71a8b6cd9.js",
+      "static/chunks/main-app-d89a3629e50665ed.js",
+      "static/chunks/app/_not-found/page-074eef7f7d44ed11.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-e35b36d3638c2d3c.js",
+      "static/chunks/4bd1b696-7f4092adee896cfb.js",
+      "static/chunks/517-698017e71a8b6cd9.js",
+      "static/chunks/main-app-d89a3629e50665ed.js",
+      "static/css/ec95412da4644cfb.css",
+      "static/chunks/app/layout-c9602f409b09dfd0.js"
+    ],
+    "/(thrid-party)/google/page": [
+      "static/chunks/webpack-e35b36d3638c2d3c.js",
+      "static/chunks/4bd1b696-7f4092adee896cfb.js",
+      "static/chunks/517-698017e71a8b6cd9.js",
+      "static/chunks/main-app-d89a3629e50665ed.js",
+      "static/chunks/app/(thrid-party)/google/page-e78acd3b88a62032.js"
+    ],
+    "/(thrid-party)/callback/page": [
+      "static/chunks/webpack-e35b36d3638c2d3c.js",
+      "static/chunks/4bd1b696-7f4092adee896cfb.js",
+      "static/chunks/517-698017e71a8b6cd9.js",
+      "static/chunks/main-app-d89a3629e50665ed.js",
+      "static/chunks/app/(thrid-party)/callback/page-ab056c5a928fbbd5.js"
+    ],
+    "/(thrid-party)/apple/page": [
+      "static/chunks/webpack-e35b36d3638c2d3c.js",
+      "static/chunks/4bd1b696-7f4092adee896cfb.js",
+      "static/chunks/517-698017e71a8b6cd9.js",
+      "static/chunks/main-app-d89a3629e50665ed.js",
+      "static/chunks/app/(thrid-party)/apple/page-e4b8d16bbb8f09b0.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-e35b36d3638c2d3c.js",
+      "static/chunks/4bd1b696-7f4092adee896cfb.js",
+      "static/chunks/517-698017e71a8b6cd9.js",
+      "static/chunks/main-app-d89a3629e50665ed.js",
+      "static/chunks/839-ee0b8cfd2b2dd0ab.js",
+      "static/chunks/app/page-ae9bc0c1a4899b57.js"
+    ]
+  }
+}
