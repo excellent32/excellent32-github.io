@@ -9,20 +9,24 @@ export default function Page() {
   useEffect(() => {
     const hashParams = new URLSearchParams(location.hash.substr(1))
     const id_token = hashParams.get('id_token');
-    window.postMessage(id_token, location.origin)
+    console.log('======id_token=',id_token);
+    window.opener.postMessage({id_token}, location.origin);
+    setTimeout(()=>{
+      window.close();
+    })
   }, []);
-  if(typeof document !== 'undefined'){
-    window.document.addEventListener('AppleIDSignInOnSuccess', (event: any) => {
-      // Handle successful response.
-      console.log(event.detail.data);
-    });
-
-  // Listen for authorization failures.
-    window.document.addEventListener('AppleIDSignInOnFailure', (event: any) => {
-      // Handle error.
-      console.log(event.detail.error);
-    });
-  }
+  // if(typeof document !== 'undefined'){
+  //   window.document.addEventListener('AppleIDSignInOnSuccess', (event: any) => {
+  //     // Handle successful response.
+  //     console.log(event.detail.data);
+  //   });
+  //
+  // // Listen for authorization failures.
+  //   window.document.addEventListener('AppleIDSignInOnFailure', (event: any) => {
+  //     // Handle error.
+  //     console.log(event.detail.error);
+  //   });
+  // }
 
   function handleChromeClick(){
     const hashParams = new URLSearchParams(location.hash.substr(1))
