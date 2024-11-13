@@ -37,7 +37,7 @@ export default function Page() {
       redirectURI: 'https://dev12.pulse.social:8080/callback',
       // state: 'initial',
       nonce: '21208298071267998750675144691611999301006655472014769051443385150345422400305',
-      // usePopup : true
+      usePopup : true
     });
   }
 
@@ -46,9 +46,9 @@ export default function Page() {
   }
 
   return (
-    <div>
-      <button onClick={handleAuthClick}>Apple-Auth</button>
-      <button onClick={handleLoginClick}>Has Login</button>
+    <div className="mt-10 ml-10 flex item-center justify-around">
+      <button className="bg-purple-300 p-2 rounded-xl cursor-pointer" onClick={handleAuthClick}>Apple-Auth</button>
+      <button className="bg-gray-300 p-2 rounded-xl cursor-pointer" onClick={handleLoginClick}>Has Login</button>
     </div>
   )
 }

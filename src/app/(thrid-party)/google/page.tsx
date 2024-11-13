@@ -13,12 +13,17 @@ declare let google : Record<string, any>;
 
 export default function Apple() {
   const [authLink, setAuthLink] = useState('')
+  const [idToken, setIdToken] = useState('')
   useEffect(() => {
     const link = genAuth();
     setAuthLink(link);
     window.addEventListener('message', (event) => {
       // 验证消息来源
-      console.log('Received message:', event.data);
+      console.log('==event=', event);
+      if(event.origin === location.origin && event.data.id_token){
+        // console.log('Received message:', event.data);
+        setIdToken(event.data.id_token)
+      }
     });
   }, []);
 
@@ -69,11 +74,11 @@ export default function Apple() {
     // setTimeout(()=>{
     //   a.remove();
     // })
-    const popupWindow = window.open(authLink, 'popupWindow', 'popup=1,width=600,height=400,scrollbars=yes,resizable=yes');
-    popupWindow.onChange=()=>{
-      console.log('====',popupWindow.location);
-      popupWindow.postMessage('==popupWindow===','window')
-    };
+    const popupWindow = window.open(authLink, '_blank', 'popup=1,width=600,height=400,scrollbars=yes,resizable=yes');
+    // popupWindow.addEventListener('message', (event)=>{
+    //   console.log('===message=', event.detail);
+    //   // popupWindow.postMessage('==popupWindow===','window')
+    // });
   }
 
 function handleLoginClick(){
@@ -82,9 +87,13 @@ function handleLoginClick(){
 
   return (
     <div>
-      <div className="w-300 flex item-center justify-around">
-        <span className="purple" onClick={handleLinkClick}>nav-auth</span>
-        <span className="purple" onClick={handleLoginClick}>Has Login</span>
+      <div className="w-300 flex item-center justify-around pt-3">
+        <span className="bg-purple-300 p-2 rounded-xl cursor-pointer" onClick={handleLinkClick}>nav-auth</span>
+        {/*<a href={authLink} target="_blank">nav-auth</a>*/}
+        <span className="bg-gray-300 p-2 rounded-xl cursor-pointer" onClick={handleLoginClick}>Has Login</span>
+      </div>
+      <div className="m-10 p-6 bg-pink-200 rounded-3xl outline-0 whitespace-break-spaces break-words">
+      {idToken}
       </div>
       <span id="google111" className="flex"></span>
     </div>
