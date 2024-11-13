@@ -35,7 +35,7 @@ export default function Page() {
       clientId: 'service.pulse.social',
       scope: 'name email',
       redirectURI: `${location.origin}/callback`,
-      // state: 'initial',
+      state: 'initial',
       nonce: '21208298071267998750675144691611999301006655472014769051443385150345422400305',
       usePopup : true
     });
