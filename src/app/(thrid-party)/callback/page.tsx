@@ -12,7 +12,7 @@ export default function Page() {
     console.log('======id_token=',id_token);
     window.opener.postMessage({id_token}, location.origin);
     setTimeout(()=>{
-      window.close();
+      // window.close();
     })
   }, []);
   // if(typeof document !== 'undefined'){
