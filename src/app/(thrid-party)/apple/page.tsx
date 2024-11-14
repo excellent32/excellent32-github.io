@@ -42,7 +42,6 @@ export default function Page() {
   }
 
   function handleLoginClick(){
-
   }
 
   return (
