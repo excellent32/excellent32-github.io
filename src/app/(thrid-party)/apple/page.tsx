@@ -33,7 +33,7 @@ export default function Page() {
     AppleID.auth.init({
       response_type: 'code id_token',
       clientId: 'service.pulse.social',
-      scope: 'email',
+      scope: 'email name',
       redirectURI: `${location.origin}/callback`,
       state: 'initial',
       nonce: '21208298071267998750675144691611999301006655472014769051443385150345422400305',
