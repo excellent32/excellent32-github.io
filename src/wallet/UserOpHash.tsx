@@ -1,29 +1,29 @@
 import {useCallback, useState} from 'react';
 import { http } from 'viem'
-import { createBundlerClient } from 'viem/account-abstraction'
+import {createBundlerClient} from 'viem/account-abstraction'
 import { mainnet } from 'viem/chains'
-
-const bundlerClient = createBundlerClient({
-  chain: mainnet,
-  transport: http('https://opt-mainnet.g.alchemy.com/v2/6GVHgDqV0Xv_iPE1cA2FPUJFdZhElNrJ')
-})
-const bundlerClient2 = createBundlerClient({
-  chain: mainnet,
-  transport: http('https://arb-mainnet.g.alchemy.com/v2/6GVHgDqV0Xv_iPE1cA2FPUJFdZhElNrJ')
-})
 
 export default function UserOpHash(){
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState<Record<string,any>>({});
   const [error, setError] = useState(false);
 
-  const [dataArb, setDataArb] = useState({});
+  const [dataArb, setDataArb] = useState<Record<string,any>>({});
   const [errorArb, setErrorArb] = useState(false);
+
+  const bundlerClient = createBundlerClient({
+    chain: mainnet,
+    transport: http('https://opt-mainnet.g.alchemy.com/v2/6GVHgDqV0Xv_iPE1cA2FPUJFdZhElNrJ')
+  })
+  const bundlerClient2 = createBundlerClient({
+    chain: mainnet,
+    transport: http('https://arb-mainnet.g.alchemy.com/v2/6GVHgDqV0Xv_iPE1cA2FPUJFdZhElNrJ')
+  })
 
   const handleChange = useCallback(async (event) => {
     setError(false);
     const v = event.target.value;
-    const res = await bundlerClient.getUserOperationReceipt({
+    const res:any = await bundlerClient.getUserOperationReceipt({
       hash: v
     }).catch((e)=>{
       console.error('[Error]:',e);
@@ -36,7 +36,7 @@ export default function UserOpHash(){
   const handleChange2 = useCallback(async (event) => {
     setErrorArb(false);
     const v = event.target.value;
-    const res = await bundlerClient2.getUserOperationReceipt({
+    const res:any = await bundlerClient2.getUserOperationReceipt({
       hash: v
     }).catch((e)=>{
       console.error('[Error]:',e);
