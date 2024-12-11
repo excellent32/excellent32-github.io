@@ -10,7 +10,6 @@ import Wallet from './wallet/Wallet'
 import UserOpHash from './wallet/UserOpHash'
 
 import './index.css'
-// https://api.optimism.io/your-endpoint?userOpHash=${userOpHash}
 const baseUrl = import.meta.env.BASE_URL;
 
 const router = createBrowserRouter([
