@@ -7,9 +7,10 @@ import GoogleAuth from './third-party/GoogleAuth'
 import AuthResult from './third-party/AuthResult'
 import NativeParams from './native-params'
 import Wallet from './wallet/Wallet'
+import UserOpHash from './wallet/UserOpHash'
 
 import './index.css'
-
+// https://api.optimism.io/your-endpoint?userOpHash=${userOpHash}
 const baseUrl = import.meta.env.BASE_URL;
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: baseUrl +"/wallet",
     element: <Wallet/>,
+  },
+  {
+    path: baseUrl +"/userOpHash",
+    element: <UserOpHash/>,
   },
   {
     path: baseUrl +"/native-params",
